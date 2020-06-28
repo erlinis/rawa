@@ -1,0 +1,29 @@
+<div class="header">
+
+  <h1>RAWA</h1>
+  <p>RoR Auth0 Web Application </p>
+
+  <img src="<%= asset_path('logo_ww.png') %>" width="100" heigth="100">
+
+  <% if session[:userinfo].present? %>
+   <%= button_to 'Dashboard', dashboard_url, method: :get, class: 'mt-20 btn btn-login' %>
+  <% end %>
+</div>
+
+
+<div class="content">
+
+  <% if flash.alert %>
+    <div class='flash_error'>
+      <%= flash.alert %>
+    </div>
+  <% end %>
+
+  <% if session[:userinfo].nil?%>
+    <%= button_to 'Login', 'auth/auth0', method: :post, class: 'btn btn-login'  %>
+  <% else %>
+    <%= button_to 'Logout', 'logout', method: :get, class: 'btn btn-logout' %>
+  <% end %>
+
+  <%# <%= session[:userinfo].inspect %1> %>
+</div>

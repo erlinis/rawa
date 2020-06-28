@@ -1,0 +1,18 @@
+<div class="dashboard">
+  <h1>Dashboard</h1>
+
+  <%= button_to 'Home', root_url, method: :get,  class: 'btn' %>
+</div>
+
+
+<div class="content">
+  <p>Hi!</p>
+  <img class="avatar" src="<%= session[:userinfo]['image'] %>" width="90" heigth="90">
+
+  <p><%= session[:userinfo]['name'] %></p>
+  <p><%= session[:userinfo]['email'] %></p>
+
+  <br>
+  <br>
+  <%= button_to 'Logout', 'logout', method: :get, class: 'btn btn-logout' %>
+</div>
