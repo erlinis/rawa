@@ -1,24 +1,8 @@
-# README
+# RAWA - [Rails] Authentication of a Web Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample of authentication with Auth0 in a Rails application.
 
-Things you may want to cover:
+![Universal Login image sample](https://github.com/erlinis/rawa/blob/master/app/assets/images/universal_login.png?raw=true)
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Requires an Auth0 account with one Regular Web Application. In Auth0 go to the application settings to the grab `CLIENT_ID`, `CLIENT_SECRET` and `DOMAIN` and fill the `.env` file properly.
