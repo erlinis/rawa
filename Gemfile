@@ -13,7 +13,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'sqlite3', '~> 1.4'
 
 # Autho0
-gem 'omniauth-auth0', '~> 2.2'
+gem 'omniauth-auth0', '~> 2.4'
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 # Use Puma as the app server
