@@ -1,0 +1,36 @@
+
+name: Validates minimum PR approvals if config files are changed
+on:
+  pull_request:
+    paths:
+      - 'config/**'
+
+  pull_request_review:
+    types:
+      - 'created'
+      - 'edited'
+      - 'deleted'
+      - 'submitted'
+      - 'dismissed'
+
+jobs:
+  minimun_approvals_verification:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - id: 'reviews'
+        uses: 'jrylan/github-action-reviews-counter@main'
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: 'Leass than 2 approvals?'
+        if: 'steps.reviews.outputs.approved <= 1 && steps.reviews.outputs.changes_requested == 0'
+        run: |
+          echo "Not enough approvals yet. Approvals count: ${{steps.reviews.outputs.approved}}"
+          exit 0
+
+      - name: 'Two approvals?'
+        if: 'steps.reviews.outputs.approved < 2 || steps.reviews.outputs.changes_requested != 0'
+        run: |
+          echo "Minimun approvals not reached or changes are requested still pending!!!"
+          exit 1
+
